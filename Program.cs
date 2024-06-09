@@ -1,4 +1,8 @@
+using TextPlus_BE;
+
 var builder = WebApplication.CreateBuilder(args);
+Bootstrap bootstrap = new(builder.Services, builder.Configuration);
+bootstrap.InitDependencies();
 
 // Add services to the container.
 
@@ -22,4 +26,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();
